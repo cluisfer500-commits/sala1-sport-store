@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala 1 Sport Store | Loja Oficial de Basquete</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              bg: '#101014',
+              card: '#1C1D24',
+              cardHover: '#242630',
+              orange: '#F26522',
+              orangeHover: '#D95314',
+              gold: '#F5B82E',
+              border: '#2C2E38'
+            }
+          },
+          fontFamily: {
+            display: ['"Barlow Condensed"', 'sans-serif'],
+            sans: ['"Inter"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #101014;
+      color: #F4F4F6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-sport {
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #101014;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2C2E38;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F26522;
+    }
+    .court-grid-bg {
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(242, 101, 34, 0.16) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(245, 184, 46, 0.08) 0%, transparent 45%),
+        linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-orange text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center tracking-wide">
+    <span class="inline-flex items-center gap-2">
+      <i class="fa-solid fa-crown text-brand-gold"></i>
+      <span>LANÇAMENTO OFICIAL: Use o cupom <strong class="bg-brand-bg text-brand-gold px-2 py-0.5 rounded font-mono">ALUNO10</strong> para 10% OFF + Retirada Grátis na Quadra!</span>
+    </span>
+  </div>
+
+  <!-- FIXED HEADER -->
+  <header class="sticky top-0 z-40 bg-brand-bg/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group shrink-0">
+          <div class="relative w-12 h-12 rounded-xl bg-gradient-to-br from-brand-orange to-orange-700 flex items-center justify-center shadow-lg shadow-brand-orange/25 group-hover:scale-105 transition-transform">
+            <!-- Custom SVG Basketball + Crown -->
+            <svg class="w-8 h-8 text-white" viewBox="0 0 64 64" fill="none">
+              <path d="M18 14L24 21L32 11L40 21L46 14L43 25H21L18 14Z" fill="#F5B82E" stroke="#101014" stroke-width="2" stroke-linejoin="round"/>
+              <circle cx="32" cy="41" r="17" fill="#F26522" stroke="#FFFFFF" stroke-width="2.5"/>
+              <path d="M15 41H49" stroke="#101014" stroke-width="2.2"/>
+              <path d="M32 24V58" stroke="#101014" stroke-width="2.2"/>
+              <path d="M20 29C25 34 25 48 20 53" stroke="#101014" stroke-width="2.2" fill="none"/>
+              <path d="M44 29C39 34 39 48 44 53" stroke="#101014" stroke-width="2.2" fill="none"/>
+            </svg>
+          </div>
+          <div class="leading-none">
+            <div class="font-sport font-black text-2xl sm:text-3xl tracking-tight text-white uppercase flex items-center gap-1">
+              SALA <span class="text-brand-orange">1</span> SPORT
+            </div>
+            <div class="text-[11px] font-bold tracking-[0.22em] text-brand-gold uppercase">
+              STORE OFICIAL
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-zinc-300">
+          <a href="#inicio" class="hover:text-brand-orange transition-colors">Início</a>
+          <a href="#catalogo" class="hover:text-brand-orange transition-colors">Produtos</a>
+          <a href="#catalogo" onclick="filterByCategory('Uniformes & Vestuário')" class="hover:text-brand-orange transition-colors">Kits Escolinha</a>
+          <a href="#beneficios" class="hover:text-brand-orange transition-colors">Sobre a Loja</a>
+        </nav>
+
+        <!-- Search + Cart Actions -->
+        <div class="flex items-center gap-3 flex-1 max-w-md justify-end">
+          <div class="relative flex-1 max-w-[240px] sm:max-w-xs">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-xs"></i>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Buscar bola, uniforme, mochila..."
+              oninput="handleSearch(this.value)"
+              class="w-full bg-brand-card border border-brand-border text-sm text-white placeholder-zinc-400 rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:border-brand-orange transition-colors"
+            />
+          </div>
+
+          <button
+            onclick="toggleCart(true)"
+            aria-label="Abrir carrinho"
+            class="relative flex items-center gap-2.5 bg-brand-card hover:bg-brand-cardHover border border-brand-border hover:border-brand-orange text-white px-4 py-2.5 rounded-xl transition-all cursor-pointer shrink-0"
+          >
+            <i class="fa-solid fa-bag-shopping text-brand-orange text-lg"></i>
+            <span class="hidden sm:inline text-sm font-bold">Carrinho</span>
+            <span id="cartBadge" class="bg-brand-orange text-white text-xs font-extrabold px-2 py-0.5 rounded-full min-w-[22px] text-center">
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Quick Nav -->
+      <div class="flex lg:hidden items-center justify-around py-2.5 border-t border-brand-border text-xs font-semibold text-zinc-300">
+        <a href="#inicio" class="hover:text-brand-orange">Início</a>
+        <a href="#catalogo" onclick="filterByCategory('Todos')" class="hover:text-brand-orange">Produtos</a>
+        <a href="#catalogo" onclick="filterByCategory('Uniformes & Vestuário')" class="hover:text-brand-orange">Kits Escolinha</a>
+        <a href="#beneficios" class="hover:text-brand-orange">Sobre a Loja</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section id="inicio" class="court-grid-bg border-b border-brand-border relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Copy -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-brand-card border border-brand-orange/40 text-brand-gold px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-brand-orange animate-pulse"></span>
+            Loja Oficial Integrada à Escolinha de Basquete
+          </div>
+
+          <h1 class="font-sport font-black text-5xl sm:text-6xl lg:text-7xl uppercase leading-[0.95] tracking-tight text-white">
+            ENTRE EM QUADRA COM O <span class="text-brand-orange">MANDO DO JOGO</span>
+          </h1>
+
+          <p class="text-zinc-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Equipamentos oficiais, bolas de alta performance, uniformes exclusivos e acessórios selecionados pela equipe técnica da <strong class="text-white">Sala 1 Sport</strong> para elevar o nível de cada treino.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#catalogo" onclick="filterByCategory('Todos')" class="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-brand-orange/25 transition-all transform hover:-translate-y-0.5">
+              <span>Explorar Catálogo</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#catalogo" onclick="filterByCategory('Uniformes & Vestuário')" class="inline-flex items-center gap-2.5 bg-brand-card hover:bg-brand-cardHover border border-brand-border hover:border-brand-gold text-white font-bold px-7 py-4 rounded-xl transition-all">
+              <i class="fa-solid fa-shirt text-brand-gold"></i>
+              <span>Ver Kits Oficiais dos Alunos</span>
+            </a>
+          </div>
+
+          <!-- Quick Trust Metrics -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-brand-border/80 max-w-xl">
+            <div>
+              <p class="font-sport font-extrabold text-2xl sm:text-3xl text-brand-gold">10% OFF</p>
+              <p class="text-xs text-zinc-400">Cupom ALUNO10</p>
+            </div>
+            <div>
+              <p class="font-sport font-extrabold text-2xl sm:text-3xl text-white">FRETE R$ 0</p>
+              <p class="text-xs text-zinc-400">Retirada na Quadra</p>
+            </div>
+            <div>
+              <p class="font-sport font-extrabold text-2xl sm:text-3xl text-brand-orange">100% PRO</p>
+              <p class="text-xs text-zinc-400">Padrão Sala 1 Sport</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Emblem -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md bg-gradient-to-b from-brand-card to-brand-bg border border-brand-border rounded-3xl p-8 shadow-2xl">
+            <div class="absolute -top-4 -right-4 bg-brand-gold text-brand-bg font-sport font-black text-lg uppercase px-4 py-1.5 rounded-xl shadow-lg rotate-3">
+              Coleção 2026
+            </div>
+
+            <!-- Custom Hero Emblem SVG -->
+            <svg viewBox="0 0 360 320" class="w-full h-auto drop-shadow-2xl" fill="none">
+              <defs>
+                <radialGradient id="heroGlow" cx="50%" cy="45%" r="50%">
+                  <stop offset="0%" stop-color="#F26522" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#101014" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="ballGrad" x1="95" y1="65" x2="265" y2="235" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FF7E3E"/>
+                  <stop offset="55%" stop-color="#F26522"/>
+                  <stop offset="100%" stop-color="#A83807"/>
+                </linearGradient>
+              </defs>
+              <circle cx="180" cy="155" r="145" fill="url(#heroGlow)"/>
+              <!-- Backboard & Rim silhouette -->
+              <rect x="115" y="16" width="130" height="72" rx="8" stroke="#3F4252" stroke-width="3" fill="#16171D"/>
+              <rect x="152" y="42" width="56" height="36" rx="3" stroke="#F26522" stroke-width="2.5"/>
+              <!-- Crown -->
+              <path d="M132 54L152 74L180 42L208 74L228 54L218 88H142L132 54Z" fill="#F5B82E" stroke="#101014" stroke-width="3" stroke-linejoin="round"/>
+              <!-- Main Basketball -->
+              <circle cx="180" cy="168" r="82" fill="url(#ballGrad)" stroke="#101014" stroke-width="4"/>
+              <path d="M98 168H262" stroke="#101014" stroke-width="4"/>
+              <path d="M180 86V250" stroke="#101014" stroke-width="4"/>
+              <path d="M122 110C148 138 148 198 122 226" stroke="#101014" stroke-width="4" fill="none"/>
+              <path d="M238 110C212 138 212 198 238 226" stroke="#101014" stroke-width="4" fill="none"/>
+              <!-- Ribbon Banner -->
+              <path d="M44 232L64 218H296L316 232L302 268H58L44 232Z" fill="#101014" stroke="#F26522" stroke-width="3"/>
+              <text x="180" y="250" text-anchor="middle" fill="#FFFFFF" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="25" letter-spacing="2">
+                SALA 1 SPORT STORE
+              </text>
+              <!-- Stars -->
+              <circle cx="78" cy="243" r="4" fill="#F5B82E"/>
+              <circle cx="282" cy="243" r="4" fill="#F5B82E"/>
+            </svg>
+
+            <div class="mt-4 bg-brand-bg/90 border border-brand-border rounded-2xl p-4 flex items-center justify-between">
+              <div>
+                <p class="text-xs text-zinc-400 uppercase font-semibold">Destaque do Mês</p>
+                <p class="font-bold text-white text-sm">Kit Uniforme Oficial + Bola Pro</p>
+              </div>
+              <span class="bg-brand-orange/20 text-brand-orange text-xs font-extrabold px-3 py-1 rounded-lg">
+                Pronta Entrega
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG SECTION -->
+  <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20">
+    
+    <!-- Section Title & Sort -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <span class="text-brand-orange font-bold text-xs uppercase tracking-[0.2em]">Equipamentos Selecionados</span>
+        <h2 class="font-sport font-black text-4xl sm:text-5xl text-white uppercase mt-1">
+          Catálogo Oficial <span class="text-brand-gold">Sala 1</span>
+        </h2>
+      </div>
+
+      <!-- Sort Control -->
+      <div class="flex items-center gap-3">
+        <label for="sortSelect" class="text-xs font-semibold text-zinc-400 uppercase">Ordenar por:</label>
+        <select
+          id="sortSelect"
+          onchange="handleSort(this.value)"
+          class="bg-brand-card border border-brand-border text-white text-sm font-medium rounded-xl px-4 py-2.5 focus:outline-none focus:border-brand-orange cursor-pointer"
+        >
+          <option value="featured">Destaques da Escolinha</option>
+          <option value="price-asc">Menor Preço</option>
+          <option value="price-desc">Maior Preço</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div id="categoryFilters" class="flex flex-wrap items-center gap-2.5 mb-10">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-brand-card border border-brand-border rounded-2xl">
+      <i class="fa-solid fa-basketball text-4xl text-brand-orange mb-3"></i>
+      <h3 class="font-sport text-2xl font-bold text-white uppercase">Nenhum produto encontrado</h3>
+      <p class="text-zinc-400 text-sm mt-1 mb-5">Tente buscar por outro termo ou limpe os filtros selecionados.</p>
+      <button onclick="resetFilters()" class="bg-brand-orange hover:bg-brand-orangeHover text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors cursor-pointer">
+        Mostrar Todos os Produtos
+      </button>
+    </div>
+  </section>
+
+  <!-- SPECIAL SECTION: RETIRADA NA QUADRA & BENEFÍCIOS PARA ALUNOS -->
+  <section id="beneficios" class="bg-brand-card/60 border-y border-brand-border py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-brand-gold font-bold text-xs uppercase tracking-[0.2em]">Vantagens Exclusivas</span>
+        <h2 class="font-sport font-black text-4xl sm:text-5xl text-white uppercase mt-1">
+          Retirada na Quadra & Benefícios para Alunos
+        </h2>
+        <p class="text-zinc-300 text-sm sm:text-base mt-3">
+          A <strong class="text-white">Sala 1 Sport Store</strong> funciona integrada à nossa quadra oficial, garantindo comodidade para pais e atletas sem custo de frete.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="bg-brand-bg border border-brand-border rounded-2xl p-7 hover:border-brand-orange transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h3 class="font-sport font-extrabold text-2xl text-white uppercase mb-2">
+            Retirada Grátis na Quadra
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Compre pelo site e retire seu pedido diretamente na recepção da quadra da <strong class="text-zinc-200">Sala 1 Sport</strong> antes ou depois dos treinos, com taxa zero de entrega.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-brand-bg border border-brand-gold/40 rounded-2xl p-7 relative overflow-hidden">
+          <div class="w-12 h-12 rounded-xl bg-brand-gold/15 text-brand-gold flex items-center justify-center text-xl mb-5">
+            <i class="fa-solid fa-ticket"></i>
+          </div>
+          <h3 class="font-sport font-extrabold text-2xl text-white uppercase mb-2">
+            10% OFF com Cupom ALUNO10
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed mb-4">
+            Alunos matriculados e familiares têm <strong class="text-brand-gold">10% de desconto</strong> em toda a loja aplicando o código abaixo no carrinho:
+          </p>
+          <button
+            onclick="copyCoupon()"
+            class="inline-flex items-center gap-2 bg-brand-card hover:bg-brand-cardHover border border-dashed border-brand-gold text-brand-gold font-mono font-bold text-sm px-4 py-2 rounded-xl cursor-pointer transition-colors"
+          >
+            <span>ALUNO10</span>
+            <i class="fa-regular fa-copy text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-brand-bg border border-brand-border rounded-2xl p-7 hover:border-brand-orange transition-colors">
+          <div class="w-12 h-12 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-xl mb-5">
+            <i class="fa-regular fa-credit-card"></i>
+          </div>
+          <h3 class="font-sport font-extrabold text-2xl text-white uppercase mb-2">
+            Parcelamento Facilitado
+          </h3>
+          <p class="text-zinc-400 text-sm leading-relaxed">
+            Parcele seus equipamentos e kits oficiais em até <strong class="text-zinc-200">6x sem juros</strong> no cartão ou pague via PIX na retirada com confirmação imediata.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-bg border-t border-brand-border pt-14 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-brand-border">
+        <div>
+          <div class="font-sport font-black text-3xl text-white uppercase tracking-tight">
+            SALA <span class="text-brand-orange">1</span> SPORT <span class="text-brand-gold">STORE</span>
+          </div>
+          <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+            Loja oficial de artigos de basquetebol integrada à <strong>Sala 1 Sport – Escolinha de Basquete</strong>. Formação esportiva, disciplina e performance dentro e fora das quadras.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-sport font-bold text-xl text-white uppercase mb-3">Horários de Atendimento na Quadra</h4>
+          <ul class="space-y-2 text-sm text-zinc-400">
+            <li><i class="fa-regular fa-clock text-brand-orange mr-2"></i>Segunda a Sexta: 14h00 às 21h30</li>
+            <li><i class="fa-regular fa-clock text-brand-orange mr-2"></i>Sábados (Treinos & Torneios): 08h30 às 13h00</li>
+            <li><i class="fa-solid fa-basketball text-brand-gold mr-2"></i>Ponto de Retirada: Quadra Oficial Sala 1 Sport</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-sport font-bold text-xl text-white uppercase mb-3">Navegação Rápida</h4>
+          <ul class="space-y-2 text-sm text-zinc-400">
+            <li><a href="#inicio" class="hover:text-brand-orange transition-colors">Início</a></li>
+            <li><a href="#catalogo" onclick="filterByCategory('Todos')" class="hover:text-brand-orange transition-colors">Catálogo Completo</a></li>
+            <li><a href="#catalogo" onclick="filterByCategory('Uniformes & Vestuário')" class="hover:text-brand-orange transition-colors">Kits Oficiais da Escolinha</a></li>
+            <li><a href="#beneficios" class="hover:text-brand-orange transition-colors">Cupom ALUNO10 & Retirada</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <p>© 2026 Sala 1 Sport – Escolinha de Basquete & Loja Esportiva. Todos os direitos reservados.</p>
+        <p class="text-zinc-400">Projeto Integrado • Escolinha & Loja Oficial</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER OVERLAY -->
+  <div id="cartOverlay" onclick="toggleCart(false)" class="fixed inset-0 bg-black/75 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+
+  <!-- CART SIDE DRAWER -->
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-card border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col shadow-2xl">
+    
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-brand-border flex items-center justify-between bg-brand-bg">
+      <div class="flex items-center gap-2.5">
+        <i class="fa-solid fa-bag-shopping text-brand-orange text-xl"></i>
+        <h3 class="font-sport font-black text-2xl text-white uppercase tracking-wide">Seu Carrinho</h3>
+      </div>
+      <button onclick="toggleCart(false)" class="w-9 h-9 rounded-xl bg-brand-card hover:bg-brand-border text-zinc-300 hover:text-white flex items-center justify-center cursor-pointer transition-colors">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Cart Items List -->
+    <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Populated dynamically -->
+    </div>
+
+    <!-- Drawer Footer (Coupon, Delivery, Totals, Checkout) -->
+    <div id="cartFooter" class="p-5 bg-brand-bg border-t border-brand-border space-y-4">
+      
+      <!-- Delivery Option -->
+      <div>
+        <label class="block text-xs font-bold uppercase text-zinc-400 mb-2">Forma de Recebimento</label>
+        <div class="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            id="deliveryQuadraBtn"
+            onclick="setDeliveryMethod('quadra')"
+            class="py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-orange bg-brand-orange/15 text-white"
+          >
+            <div class="flex items-center justify-between">
+              <span>Retirar na Quadra</span>
+              <span class="text-emerald-400">GRÁTIS</span>
+            </div>
+            <span class="text-[11px] font-normal text-zinc-300 block mt-0.5">Nos horários de treino</span>
+          </button>
+
+          <button
+            type="button"
+            id="deliveryLocalBtn"
+            onclick="setDeliveryMethod('local')"
+            class="py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-border bg-brand-card text-zinc-300"
+          >
+            <div class="flex items-center justify-between">
+              <span>Entrega Local</span>
+              <span class="text-brand-gold">R$ 15,00</span>
+            </div>
+            <span class="text-[11px] font-normal text-zinc-400 block mt-0.5">Em até 2 dias úteis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Coupon Input -->
+      <div>
+        <div class="flex gap-2">
+          <input
+            id="couponInput"
+            type="text"
+            placeholder="Cupom (ex: ALUNO10)"
+            class="flex-1 bg-brand-card border border-brand-border text-white text-xs font-mono uppercase rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-brand-gold"
+          />
+          <button
+            onclick="applyCoupon()"
+            class="bg-brand-card hover:bg-brand-border border border-brand-gold/50 text-brand-gold font-bold text-xs px-4 py-2.5 rounded-xl transition-colors cursor-pointer"
+          >
+            Aplicar
+          </button>
+        </div>
+        <p id="couponFeedback" class="text-xs mt-1.5 hidden"></p>
+      </div>
+
+      <!-- Totals -->
+      <div class="space-y-1.5 text-sm border-t border-brand-border pt-3">
+        <div class="flex justify-between text-zinc-400">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">R$ 0,00</span>
+        </div>
+        <div id="discountRow" class="flex justify-between text-emerald-400 hidden">
+          <span>Desconto (ALUNO10 - 10%)</span>
+          <span id="cartDiscount">- R$ 0,00</span>
+        </div>
+        <div class="flex justify-between text-zinc-400">
+          <span>Frete / Retirada</span>
+          <span id="cartShipping" class="text-emerald-400 font-semibold">Grátis</span>
+        </div>
+        <div class="flex justify-between text-lg font-extrabold text-white pt-2 border-t border-brand-border">
+          <span>Total</span>
+          <span id="cartTotal" class="text-brand-orange">R$ 0,00</span>
+        </div>
+      </div>
+
+      <!-- Checkout Button -->
+      <button
+        onclick="finalizeOrder()"
+        class="w-full bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3.5 rounded-xl shadow-lg shadow-brand-orange/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+      >
+        <i class="fa-solid fa-check-circle"></i>
+        <span>Finalizar Pedido</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ORDER CONFIRMATION MODAL -->
+  <div id="orderModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-brand-card border border-brand-border rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+      <div class="w-16 h-16 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h3 class="font-sport font-black text-3xl text-white uppercase text-center">
+        Pedido Confirmado!
+      </h3>
+      <p class="text-zinc-300 text-sm text-center mt-1">
+        Seu pedido na <strong class="text-brand-orange">Sala 1 Sport Store</strong> foi registrado com sucesso.
+      </p>
+
+      <div class="bg-brand-bg border border-brand-border rounded-2xl p-4 mt-5 space-y-2.5 text-sm">
+        <div class="flex justify-between">
+          <span class="text-zinc-400">Protocolo do Pedido:</span>
+          <span id="modalProtocol" class="font-mono font-bold text-brand-gold">#S1S-2026-0000</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-zinc-400">Recebimento:</span>
+          <span id="modalDelivery" class="font-semibold text-white">Retirar na Quadra (Grátis)</span>
+        </div>
+        <div class="border-t border-brand-border pt-2">
+          <span class="text-xs font-bold uppercase text-zinc-400 block mb-1.5">Itens do Pedido:</span>
+          <ul id="modalItemsList" class="space-y-1 text-xs text-zinc-300 max-h-36 overflow-y-auto"></ul>
+        </div>
+        <div class="flex justify-between font-extrabold text-base text-white border-t border-brand-border pt-2.5">
+          <span>Total Final:</span>
+          <span id="modalTotal" class="text-brand-orange">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button
+        onclick="closeOrderModal()"
+        class="w-full mt-6 bg-brand-orange hover:bg-brand-orangeHover text-white font-bold py-3.5 rounded-xl transition-colors cursor-pointer"
+      >
+        Continuar na Loja
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-brand-card border border-brand-orange text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-sm font-semibold opacity-0 pointer-events-none transition-all duration-300">
+    <i class="fa-solid fa-basketball text-brand-orange"></i>
+    <span id="toastMessage">Produto adicionado ao carrinho!</span>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. PRODUCT DATA & CUSTOM VECTOR SVG ARTWORKS
+    // =========================================================================
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Bola de Basquete Oficial Sala 1 Pro",
+        category: "Bolas Oficiais",
+        badge: "Mais Vendido",
+        badgeColor: "bg-brand-orange text-white",
+        price: 189.90,
+        sizes: ["Tamanho 7 (Oficial)", "Tamanho 6"],
+        description: "Microfibra de alta aderência com canaletas profundas para controle absoluto em quadra indoor e outdoor.",
+        svgType: "ballPro"
+      },
+      {
+        id: 2,
+        name: "Bola de Basquete Iniciação Juvenil",
+        category: "Bolas Oficiais",
+        badge: "Oficial Escolinha",
+        badgeColor: "bg-brand-gold text-brand-bg",
+        price: 149.90,
+        sizes: ["Tamanho 6 (Juvenil)", "Tamanho 5 (Mirim)"],
+        description: "Peso e circunferência ideais para alunos em fase de aprendizado de drible, passe e mecânica de arremesso.",
+        svgType: "ballYouth"
+      },
+      {
+        id: 3,
+        name: "Kit Uniforme Oficial Sala 1 Sport",
+        category: "Uniformes & Vestuário",
+        badge: "Oficial Escolinha",
+        badgeColor: "bg-brand-gold text-brand-bg",
+        price: 169.90,
+        sizes: ["P", "M", "G", "GG"],
+        description: "Conjunto completo (Regata + Short Laranja/Preto) em tecido Dry-Fit leve e respirável com escudo Sala 1.",
+        svgType: "uniform"
+      },
+      {
+        id: 4,
+        name: "Colete de Treino Dupla Face Sala 1",
+        category: "Uniformes & Vestuário",
+        badge: "Essencial Treino",
+        badgeColor: "bg-zinc-700 text-white",
+        price: 49.90,
+        sizes: ["P", "M", "G", "GG"],
+        description: "Dupla face (Laranja vibrante / Preto) para divisão rápida de equipes durante coletivos e rachões.",
+        svgType: "vest"
+      },
+      {
+        id: 5,
+        name: "Mochila Esportiva Porta-Bola Sala 1",
+        category: "Acessórios & Treino",
+        badge: "Lançamento",
+        badgeColor: "bg-emerald-500 text-brand-bg",
+        price: 159.90,
+        sizes: ["Único (32L)"],
+        description: "Compartimento frontal exclusivo para bola de basquete, bolso ventilado para tênis e alças acolchoadas.",
+        svgType: "backpack"
+      },
+      {
+        id: 6,
+        name: "Par de Meiões Cano Alto Performance",
+        category: "Calçados",
+        badge: "Mais Vendido",
+        badgeColor: "bg-brand-orange text-white",
+        price: 39.90,
+        sizes: ["34-38", "39-43"],
+        description: "Amortecimento reforçado no calcanhar e antepé com compressão no arco para estabilidade nos saltos.",
+        svgType: "socks"
+      },
+      {
+        id: 7,
+        name: "Kit Agilidade Treino (6 Cones + Escada)",
+        category: "Acessórios & Treino",
+        badge: "Treino Pro",
+        badgeColor: "bg-zinc-700 text-white",
+        price: 119.90,
+        sizes: ["Kit Completo"],
+        description: "6 cones demarcatórios flexíveis + escada funcional de 4 metros para treinos de coordenação e footwork.",
+        svgType: "agility"
+      },
+      {
+        id: 8,
+        name: "Munhequeira + Faixa de Cabeça Sala 1",
+        category: "Acessórios & Treino",
+        badge: "Lançamento",
+        badgeColor: "bg-emerald-500 text-brand-bg",
+        price: 34.90,
+        sizes: ["Único"],
+        description: "Conjunto atoalhado de alta absorção com bordado exclusivo Sala 1 Sport em laranja e dourado.",
+        svgType: "headband"
+      },
+      {
+        id: 9,
+        name: "Garrafa Térmica Squeeze 1L Basquete",
+        category: "Acessórios & Treino",
+        badge: "Oficial Escolinha",
+        badgeColor: "bg-brand-gold text-brand-bg",
+        price: 59.90,
+        sizes: ["1 Litro"],
+        description: "Mantém a água gelada durante todo o treino. Bico de fluxo rápido e acabamento texturizado antiderrapante.",
+        svgType: "bottle"
+      }
+    ];
+
+    const CATEGORIES = [
+      "Todos",
+      "Bolas Oficiais",
+      "Uniformes & Vestuário",
+      "Acessórios & Treino",
+      "Calçados"
+    ];
+
+    // =========================================================================
+    // 2. APPLICATION STATE
+    // =========================================================================
+    let state = {
+      selectedCategory: "Todos",
+      searchQuery: "",
+      sortBy: "featured",
+      selectedSizes: {}, // { productId: chosenSize }
+      cart: [], // [{ id, name, price, size, qty, svgType }]
+      couponApplied: false,
+      deliveryMethod: "quadra" // 'quadra' | 'local'
+    };
+
+    // Initialize default sizes
+    PRODUCTS.forEach(p => {
+      state.selectedSizes[p.id] = p.sizes[0];
+    });
+
+    // =========================================================================
+    // 3. VECTOR SVG GENERATOR FOR PRODUCTS
+    // =========================================================================
+    function getProductSVG(type, small = false) {
+      const cls = small ? "w-12 h-12" : "w-36 h-36 group-hover:scale-105 transition-transform duration-300";
+      switch (type) {
+        case "ballPro":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <circle cx="70" cy="70" r="54" fill="#F26522" stroke="#101014" stroke-width="3"/>
+              <path d="M16 70H124" stroke="#101014" stroke-width="3"/>
+              <path d="M70 16V124" stroke="#101014" stroke-width="3"/>
+              <path d="M32 32C50 50 50 90 32 108" stroke="#101014" stroke-width="3" fill="none"/>
+              <path d="M108 32C90 50 90 90 108 108" stroke="#101014" stroke-width="3" fill="none"/>
+              <circle cx="70" cy="70" r="54" stroke="#F5B82E" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <rect x="44" y="58" width="52" height="22" rx="4" fill="#101014"/>
+              <text x="70" y="73" text-anchor="middle" fill="#F5B82E" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="13">SALA 1 PRO</text>
+            </svg>`;
+        case "ballYouth":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <circle cx="70" cy="70" r="50" fill="#FF7B39" stroke="#FFFFFF" stroke-width="2.5"/>
+              <path d="M20 70H120" stroke="#1C1D24" stroke-width="2.8"/>
+              <path d="M70 20V120" stroke="#1C1D24" stroke-width="2.8"/>
+              <path d="M35 35C52 52 52 88 35 105" stroke="#1C1D24" stroke-width="2.8" fill="none"/>
+              <path d="M105 35C88 52 88 88 105 105" stroke="#1C1D24" stroke-width="2.8" fill="none"/>
+              <rect x="48" y="60" width="44" height="20" rx="4" fill="#F5B82E"/>
+              <text x="70" y="74" text-anchor="middle" fill="#101014" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="12">SIZE 6</text>
+            </svg>`;
+        case "uniform":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <!-- Jersey -->
+              <path d="M44 18L56 18C58 26 82 26 84 18L96 18L104 36L96 42V76H44V42L36 36L44 18Z" fill="#101014" stroke="#F26522" stroke-width="2.5"/>
+              <path d="M44 42H96V54H44V42Z" fill="#F26522"/>
+              <text x="70" y="69" text-anchor="middle" fill="#F5B82E" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="16">01</text>
+              <!-- Shorts -->
+              <path d="M46 82H94L100 122H74L70 104L66 122H40L46 82Z" fill="#F26522" stroke="#101014" stroke-width="2.5"/>
+              <line x1="46" y1="88" x2="94" y2="88" stroke="#101014" stroke-width="3"/>
+            </svg>`;
+        case "vest":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <path d="M40 22L54 22C57 34 83 34 86 22L100 22L108 46L98 54V116H42V54L32 46L40 22Z" fill="#F26522" stroke="#FFFFFF" stroke-width="2.5"/>
+              <path d="M70 31V116H98V54L108 46L100 22H86C84 28 77 31 70 31Z" fill="#101014"/>
+              <text x="56" y="76" text-anchor="middle" fill="#101014" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="14">S1</text>
+              <text x="84" y="76" text-anchor="middle" fill="#F5B82E" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="14">01</text>
+            </svg>`;
+        case "backpack":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <path d="M52 26C52 18 88 18 88 26" stroke="#F26522" stroke-width="5" stroke-linecap="round"/>
+              <rect x="36" y="28" width="68" height="92" rx="18" fill="#101014" stroke="#3F4252" stroke-width="3"/>
+              <!-- Ball mesh pocket -->
+              <circle cx="70" cy="82" r="24" fill="#F26522" stroke="#F5B82E" stroke-width="2.5"/>
+              <path d="M46 82H94M70 58V106" stroke="#101014" stroke-width="2"/>
+              <rect x="48" y="38" width="44" height="12" rx="4" fill="#242630"/>
+              <text x="70" y="47" text-anchor="middle" fill="#FFFFFF" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="9">SALA 1 SPORT</text>
+            </svg>`;
+        case "socks":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <!-- Back sock -->
+              <path d="M68 22H92V76C92 86 108 92 112 104C115 113 106 120 96 118L72 110C66 108 68 96 68 84V22Z" fill="#242630" stroke="#F5B82E" stroke-width="2.5"/>
+              <!-- Front sock -->
+              <path d="M40 28H66V84C66 94 84 100 88 112C91 121 82 128 72 126L44 118C38 116 40 104 40 92V28Z" fill="#101014" stroke="#F26522" stroke-width="2.5"/>
+              <rect x="40" y="36" width="26" height="6" fill="#F26522"/>
+              <rect x="40" y="46" width="26" height="4" fill="#F5B82E"/>
+            </svg>`;
+        case "agility":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <!-- Agility Ladder -->
+              <line x1="22" y1="95" x2="118" y2="95" stroke="#F5B82E" stroke-width="3"/>
+              <line x1="30" y1="115" x2="110" y2="115" stroke="#F5B82E" stroke-width="3"/>
+              <line x1="36" y1="95" x2="42" y2="115" stroke="#F5B82E" stroke-width="3"/>
+              <line x1="58" y1="95" x2="62" y2="115" stroke="#F5B82E" stroke-width="3"/>
+              <line x1="80" y1="95" x2="82" y2="115" stroke="#F5B82E" stroke-width="3"/>
+              <line x1="102" y1="95" x2="100" y2="115" stroke="#F5B82E" stroke-width="3"/>
+              <!-- Cones -->
+              <polygon points="44,34 30,80 58,80" fill="#F26522" stroke="#FFFFFF" stroke-width="2"/>
+              <rect x="26" y="78" width="36" height="6" rx="2" fill="#101014"/>
+              <polygon points="94,34 80,80 108,80" fill="#F26522" stroke="#FFFFFF" stroke-width="2"/>
+              <rect x="76" y="78" width="36" height="6" rx="2" fill="#101014"/>
+            </svg>`;
+        case "headband":
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <!-- Headband -->
+              <rect x="24" y="34" width="92" height="24" rx="12" fill="#101014" stroke="#F26522" stroke-width="3"/>
+              <text x="70" y="50" text-anchor="middle" fill="#F5B82E" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="13" letter-spacing="1.5">SALA 1 SPORT</text>
+              <!-- Wristbands -->
+              <rect x="34" y="76" width="30" height="32" rx="6" fill="#F26522" stroke="#FFFFFF" stroke-width="2"/>
+              <rect x="76" y="76" width="30" height="32" rx="6" fill="#101014" stroke="#F5B82E" stroke-width="2"/>
+              <circle cx="49" cy="92" r="5" fill="#101014"/>
+              <circle cx="91" cy="92" r="5" fill="#F26522"/>
+            </svg>`;
+        case "bottle":
+        default:
+          return `
+            <svg viewBox="0 0 140 140" class="${cls}" fill="none">
+              <rect x="58" y="16" width="24" height="10" rx="3" fill="#F5B82E"/>
+              <rect x="50" y="26" width="40" height="12" rx="4" fill="#242630" stroke="#F26522" stroke-width="2"/>
+              <rect x="46" y="38" width="48" height="84" rx="12" fill="#101014" stroke="#F26522" stroke-width="3"/>
+              <rect x="46" y="64" width="48" height="32" fill="#F26522"/>
+              <text x="70" y="84" text-anchor="middle" fill="#FFFFFF" font-family="Barlow Condensed, sans-serif" font-weight="900" font-size="15">1L PRO</text>
+            </svg>`;
+      }
+    }
+
+    // =========================================================================
+    // 4. FORMATTERS & HELPERS
+    // =========================================================================
+    function formatBRL(val) {
+      return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    let toastTimer;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMessage').textContent = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2800);
+    }
+
+    function copyCoupon() {
+      const tempInput = document.createElement('input');
+      tempInput.value = 'ALUNO10';
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('Cupom ALUNO10 copiado! Use no carrinho.');
+      } catch (e) {
+        showToast('Cupom ALUNO10 pronto para uso!');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // =========================================================================
+    // 5. RENDER CATEGORIES & PRODUCTS
+    // =========================================================================
+    function renderCategories() {
+      const container = document.getElementById('categoryFilters');
+      container.innerHTML = CATEGORIES.map(cat => {
+        const active = state.selectedCategory === cat;
+        return `
+          <button
+            onclick="filterByCategory('${cat}')"
+            class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              active
+                ? 'bg-brand-orange text-white shadow-lg shadow-brand-orange/25'
+                : 'bg-brand-card hover:bg-brand-cardHover text-zinc-300 border border-brand-border'
+            }"
+          >
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const empty = document.getElementById('emptyState');
+
+      let filtered = PRODUCTS.filter(p => {
+        const matchesCat = state.selectedCategory === "Todos" || p.category === state.selectedCategory;
+        const q = state.searchQuery.trim().toLowerCase();
+        const matchesSearch = !q || p.name.toLowerCase().includes(q) || p.description.toLowerCase().includes(q) || p.category.toLowerCase().includes(q);
+        return matchesCat && matchesSearch;
+      });
+
+      if (state.sortBy === "price-asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (state.sortBy === "price-desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.map(product => {
+        const currentSize = state.selectedSizes[product.id];
+        return `
+          <article class="group bg-brand-card border border-brand-border hover:border-brand-orange/70 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-lg">
+            <div>
+              <!-- Top Visual Area -->
+              <div class="relative bg-gradient-to-b from-brand-bg to-brand-card p-6 flex items-center justify-center h-52 border-b border-brand-border/60">
+                <span class="absolute top-3.5 left-3.5 ${product.badgeColor} text-[11px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-lg shadow">
+                  ${product.badge}
+                </span>
+                <span class="absolute top-3.5 right-3.5 text-[11px] font-semibold text-zinc-400 bg-brand-bg/80 px-2.5 py-1 rounded-lg border border-brand-border">
+                  ${product.category}
+                </span>
+                ${getProductSVG(product.svgType)}
+              </div>
+
+              <!-- Info Body -->
+              <div class="p-6 pb-4">
+                <h3 class="font-sport font-extrabold text-2xl text-white uppercase leading-tight group-hover:text-brand-orange transition-colors">
+                  ${product.name}
+                </h3>
+                <p class="text-zinc-400 text-xs sm:text-sm mt-2 leading-relaxed">
+                  ${product.description}
+                </p>
+
+                <!-- Size Selector -->
+                <div class="mt-4">
+                  <span class="text-[11px] font-bold uppercase text-zinc-400 block mb-2">Opção / Tamanho:</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    ${product.sizes.map(sz => {
+                      const isSel = currentSize === sz;
+                      return `
+                        <button
+                          type="button"
+                          onclick="selectProductSize(${product.id}, '${sz}')"
+                          class="px-2.5 py-1 rounded-lg text-xs font-bold border transition-all cursor-pointer ${
+                            isSel
+                              ? 'border-brand-orange bg-brand-orange/20 text-white'
+                              : 'border-brand-border bg-brand-bg text-zinc-400 hover:text-white'
+                          }"
+                        >
+                          ${sz}
+                        </button>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Price & Add CTA -->
+            <div class="px-6 pb-6 pt-3 flex items-center justify-between gap-4 border-t border-brand-border/50 mt-2">
+              <div>
+                <span class="text-[11px] text-zinc-400 block">À vista ou até 6x</span>
+                <span class="font-sport font-black text-3xl text-white">
+                  ${formatBRL(product.price)}
+                </span>
+              </div>
+
+              <button
+                onclick="addToCart(${product.id})"
+                class="bg-brand-orange hover:bg-brand-orangeHover active:scale-95 text-white font-bold text-xs sm:text-sm px-4 py-3 rounded-xl shadow-md shadow-brand-orange/20 transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <i class="fa-solid fa-cart-plus"></i>
+                <span>Adicionar</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 6. FILTER, SEARCH & SIZE HANDLERS
+    // =========================================================================
+    function filterByCategory(category) {
+      state.selectedCategory = category;
+      renderCategories();
+      renderProducts();
+    }
+
+    function handleSearch(query) {
+      state.searchQuery = query;
+      renderProducts();
+    }
+
+    function handleSort(sortVal) {
+      state.sortBy = sortVal;
+      renderProducts();
+    }
+
+    function resetFilters() {
+      state.selectedCategory = "Todos";
+      state.searchQuery = "";
+      state.sortBy = "featured";
+      document.getElementById('searchInput').value = "";
+      document.getElementById('sortSelect').value = "featured";
+      renderCategories();
+      renderProducts();
+    }
+
+    function selectProductSize(productId, size) {
+      state.selectedSizes[productId] = size;
+      renderProducts();
+    }
+
+    // =========================================================================
+    // 7. CART LOGIC & DRAWER UI
+    // =========================================================================
+    function toggleCart(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+      if (open) {
+        overlay.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          drawer.classList.remove('translate-x-full');
+        });
+      } else {
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+        }, 280);
+      }
+    }
+
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+      const chosenSize = state.selectedSizes[productId];
+      const existingIndex = state.cart.findIndex(item => item.id === productId && item.size === chosenSize);
+
+      if (existingIndex > -1) {
+        state.cart[existingIndex].qty += 1;
+      } else {
+        state.cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          size: chosenSize,
+          qty: 1,
+          svgType: product.svgType
+        });
+      }
+
+      updateCartUI();
+      showToast(`"${product.name}" adicionado ao carrinho!`);
+    }
+
+    function updateItemQty(index, delta) {
+      if (!state.cart[index]) return;
+      state.cart[index].qty += delta;
+      if (state.cart[index].qty <= 0) {
+        state.cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeCartItem(index) {
+      state.cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function setDeliveryMethod(method) {
+      state.deliveryMethod = method;
+      const qBtn = document.getElementById('deliveryQuadraBtn');
+      const lBtn = document.getElementById('deliveryLocalBtn');
+
+      if (method === 'quadra') {
+        qBtn.className = "py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-orange bg-brand-orange/15 text-white";
+        lBtn.className = "py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-border bg-brand-card text-zinc-300";
+      } else {
+        lBtn.className = "py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-orange bg-brand-orange/15 text-white";
+        qBtn.className = "py-2.5 px-3 rounded-xl border text-xs font-bold text-left transition-all cursor-pointer border-brand-border bg-brand-card text-zinc-300";
+      }
+      updateCartUI();
+    }
+
+    function applyCoupon() {
+      const code = document.getElementById('couponInput').value.trim().toUpperCase();
+      const feedback = document.getElementById('couponFeedback');
+      feedback.classList.remove('hidden');
+
+      if (code === 'ALUNO10') {
+        state.couponApplied = true;
+        feedback.textContent = "Cupom ALUNO10 aplicado! 10% de desconto garantido.";
+        feedback.className = "text-xs mt-1.5 text-emerald-400 font-semibold";
+      } else {
+        state.couponApplied = false;
+        feedback.textContent = "Cupom inválido. Tente o cupom oficial: ALUNO10";
+        feedback.className = "text-xs mt-1.5 text-rose-400 font-semibold";
+      }
+      updateCartUI();
+    }
+
+    function calculateTotals() {
+      const subtotal = state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const discount = state.couponApplied ? subtotal * 0.10 : 0;
+      const shipping = state.cart.length === 0 ? 0 : (state.deliveryMethod === 'local' ? 15.00 : 0);
+      const total = Math.max(0, subtotal - discount + shipping);
+      return { subtotal, discount, shipping, total };
+    }
+
+    function updateCartUI() {
+      const badge = document.getElementById('cartBadge');
+      const container = document.getElementById('cartItemsContainer');
+      const footer = document.getElementById('cartFooter');
+
+      const totalQty = state.cart.reduce((acc, item) => acc + item.qty, 0);
+      badge.textContent = totalQty;
+
+      if (state.cart.length === 0) {
+        footer.classList.add('hidden');
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12">
+            <div class="w-16 h-16 rounded-2xl bg-brand-bg border border-brand-border flex items-center justify-center text-zinc-500 text-2xl mb-4">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+            <h4 class="font-sport text-2xl font-bold text-white uppercase">Seu carrinho está vazio</h4>
+            <p class="text-xs text-zinc-400 max-w-xs mt-1 mb-5">
+              Adicione bolas oficiais, uniformes da Sala 1 Sport ou acessórios de treino para começar.
+            </p>
+            <button onclick="toggleCart(false)" class="bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-bold px-5 py-2.5 rounded-xl cursor-pointer">
+              Explorar Produtos
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      footer.classList.remove('hidden');
+      container.innerHTML = state.cart.map((item, idx) => `
+        <div class="bg-brand-bg border border-brand-border rounded-2xl p-3.5 flex items-center gap-3.5">
+          <div class="w-14 h-14 rounded-xl bg-brand-card flex items-center justify-center shrink-0">
+            ${getProductSVG(item.svgType, true)}
+          </div>
+          <div class="flex-1 min-w-0">
+            <h4 class="text-sm font-bold text-white truncate">${item.name}</h4>
+            <span class="text-[11px] text-brand-gold font-semibold block">${item.size}</span>
+            <span class="text-sm font-extrabold text-brand-orange mt-1 block">${formatBRL(item.price * item.qty)}</span>
+          </div>
+          <div class="flex flex-col items-end gap-2">
+            <button onclick="removeCartItem(${idx})" aria-label="Remover item" class="text-zinc-500 hover:text-rose-400 text-xs cursor-pointer">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+            <div class="flex items-center bg-brand-card border border-brand-border rounded-lg">
+              <button onclick="updateItemQty(${idx}, -1)" class="w-7 h-7 text-zinc-300 hover:text-white font-bold cursor-pointer">-</button>
+              <span class="px-2 text-xs font-bold text-white">${item.qty}</span>
+              <button onclick="updateItemQty(${idx}, 1)" class="w-7 h-7 text-zinc-300 hover:text-white font-bold cursor-pointer">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const { subtotal, discount, shipping, total } = calculateTotals();
+      document.getElementById('cartSubtotal').textContent = formatBRL(subtotal);
+
+      const discountRow = document.getElementById('discountRow');
+      if (state.couponApplied && discount > 0) {
+        discountRow.classList.remove('hidden');
+        document.getElementById('cartDiscount').textContent = `- ${formatBRL(discount)}`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      document.getElementById('cartShipping').textContent = shipping === 0 ? "Grátis" : formatBRL(shipping);
+      document.getElementById('cartShipping').className = shipping === 0 ? "text-emerald-400 font-semibold" : "text-white font-semibold";
+      document.getElementById('cartTotal').textContent = formatBRL(total);
+    }
+
+    // =========================================================================
+    // 8. CHECKOUT & CONFIRMATION MODAL
+    // =========================================================================
+    function finalizeOrder() {
+      if (state.cart.length === 0) return;
+
+      const { total } = calculateTotals();
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('modalProtocol').textContent = `#S1S-2026-${randomNum}`;
+      document.getElementById('modalDelivery').textContent =
+        state.deliveryMethod === 'quadra' ? 'Retirar na Quadra (Grátis)' : 'Entrega Local (R$ 15,00)';
+
+      const itemsList = document.getElementById('modalItemsList');
+      itemsList.innerHTML = state.cart.map(item => `
+        <li class="flex justify-between">
+          <span>${item.qty}x ${item.name} (${item.size})</span>
+          <span class="font-semibold text-white">${formatBRL(item.price * item.qty)}</span>
+        </li>
+      `).join('');
+
+      document.getElementById('modalTotal').textContent = formatBRL(total);
+
+      toggleCart(false);
+      const modal = document.getElementById('orderModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      // Reset cart after order
+      state.cart = [];
+      state.couponApplied = false;
+      document.getElementById('couponInput').value = "";
+      document.getElementById('couponFeedback').classList.add('hidden');
+      updateCartUI();
+    }
+
+    function closeOrderModal() {
+      const modal = document.getElementById('orderModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // =========================================================================
+    // 9. INITIAL BOOT
+    // =========================================================================
+    renderCategories();
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
